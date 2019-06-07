@@ -100,7 +100,7 @@ def vcr_request(cassette, real_request):
             },
             'headers': dict(response.headers),
             'body': {'string': (await response.read())},  # NOQA: E999
-            'url': response.url,
+            'url': str(response.url),
         }
         cassette.append(vcr_request, vcr_response)
 
